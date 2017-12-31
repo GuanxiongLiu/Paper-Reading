@@ -3,4 +3,4 @@ This [paper](http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) i
 
 ## Model
 The general structure GAN is formed by two individual multilayer proceptrons which are called generative model and discriminative model.
-![aa](https://latex.codecogs.com/gif.download?p_%7Bg%7D)
+![test](https://latex.codecogs.com/gif.latex?p_%7Bg%7D)
