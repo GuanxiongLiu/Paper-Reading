@@ -16,6 +16,7 @@ In practice, there are several heuristics which is used to make sure the efficie
 ## Theoretical
 There are two major components in the theoretical analysis of this paper. The first one is the proof of global optimality at ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D%20%3D%20p_%7Bdata%7D) while the second one is the proof of convergence.
 
+## Global Optimal
 For a fixed generative model, the training process of discriminative model is to maximize 
 
 ![](https://latex.codecogs.com/gif.latex?%26%20V%28G%2CD%29%20%3D%20%26%20%5Cint_%7Bx%7D%20p_%7Bdata%7D%20%5Ctimes%20log%28D%28x%29%29d_%7Bx%7D%20&plus;%20%5Cint_%7Bz%7D%20p_%7Bz%7D%20%5Ctimes%20log%281%20-%20D%28g%28z%29%29%29d_%7Bz%7D)
@@ -45,4 +46,19 @@ Similarly, the objective function could be reformed as
 
 ![](https://latex.codecogs.com/gif.latex?%3D%20-log4%20&plus;%202%20%5Ctimes%20JSD%28p_%7Bdata%7D%20%7C%7C%20p_%7Bg%7D%29)
 
-Since the Jensen-Shannon divergence is non-negative, 
+Since the Jensen-Shannon divergence is non-negative, it's clear that the global minimum of the generative model's objective function is ![](https://latex.codecogs.com/gif.latex?-log4) when ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D%20%3D%20p_%7Bdata%7D).
+
+## Convergence
+To proof the convergence of the algorithm, the minimax objective function is considered as a function of ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D). Moreover, the objectivew function is convex in ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D). One existing conclusion used in this proof is 
+> The subderivatives of a supremum of convex functions include the derivative of the function at the point where the maximum is attined.
+
+By optimize the inner loop, it's clear that
+
+![](https://latex.codecogs.com/gif.latex?C%28G%29%20%3D%20%5Cunderset%7BD%7D%7B%5Ctext%7Bmax%7D%7D%20%7E%20V%28G%2C%20D%29%20%7E%7E%7E%7E%7E%7E%7E%20D%5E%7B*%7D%20%3D%20%5Cunderset%7BD%7D%7B%5Ctext%7Barg%20max%7D%7D%20%7E%20V%28G%2C%20D%29)
+
+Therefore, during optimizing the generative model, the calculated gradient could be used to update the generative model and make ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D) converge to ![](https://latex.codecogs.com/gif.latex?p_%7Bdata%7D).
+
+![](https://latex.codecogs.com/gif.latex?%5Ctext%7Bgradient%7D%20%3D%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20%5Ctheta_%7Bg%7D%7D%20C%28G%29%20%3D%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20%5Ctheta_%7Bg%7D%7D%20V%28G%2C%20D%5E%7B*%7D%29)
+
+## Question
+1. For a fixed discriminative model ![](https://latex.codecogs.com/gif.latex?D%5E%7B*%7D), the original minimax function becomes a function of ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D). Why this minimax function is also convex in ![](https://latex.codecogs.com/gif.latex?p_%7Bg%7D)? 
