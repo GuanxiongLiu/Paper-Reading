@@ -27,4 +27,16 @@ Assume a fixed classifier and discriminator reaches its optimal, then
 
 ![proof3](https://latex.codecogs.com/gif.latex?%3D%20H%28S%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
 
-Here, the H is used to denote the conditional entropy.
+Here, the H is used to denote the conditional entropy. Now, the minimax game could be reformulated as a function depend on the classifier only.
+
+![proof4](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Ctheta%7D_%7Bf%7D%20%3D%20%5Ctext%7Barg%7D%7E%5Cunderset%7B%5Ctheta_%7Bf%7D%7D%7B%5Ctext%7Bmin%7D%7D%7E%5Cmathcal%7BL%7D_%7Bf%7D%20-%20H%28S%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
+
+Based on the property, the lower bound of this minimax game could be represented as
+
+![proof5](https://latex.codecogs.com/gif.latex?H%28Y%7CX%29%20-%20H%28S%29%20%5Cleq%20%5Cmathcal%7BL%7D_%7Bf%7D%20-%20H%28S%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
+
+![proof6](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BL%7D_%7Bf%7D%20%5Cgeq%20H%28Y%7CX%29%20%7E%7E%7E%20%5Ctext%7Bthe%20equal%20hold%20when%7D%20%7E%20%5Ctheta_%7Bf%7D%3D%5Chat%7B%5Ctheta%7D_%7Bf%7D)
+
+![proof7](https://latex.codecogs.com/gif.latex?H%28S%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%20%5Cleq%20H%28S%29%20%7E%7E%7E%20%5Ctext%7Bthe%20equal%20hold%20when%20S%20and%7D%20%7E%20f%28X%3B%5Ctheta_%7Bf%7D%29%20%7E%20%5Ctext%7Bare%20independent%7D)
+
+Therefore, given enough capacity of classifier and discriminator, the minimax game will generate an optimal classifier which uses no information from pre-defined uncertainty parameter.
