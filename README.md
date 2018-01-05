@@ -14,11 +14,17 @@ In order to train the classifier and discriminator simultaneously, author setup 
 
 ![minimax2](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BL%7D_%7Bf%7D%28X%29%20%3D%20%5Cmathbb%7BE%7D_%7BX%7D%5Cmathbb%7BE%7D_%7BY%7D%5B-log%28p_%7B%5Ctheta_%7Bf%7D%7D%28y%7Cx%29%29%5D)
 
-![minimax3](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BL%7D_%7Bd%7D%28f%28X%3B%5Ctheta_%7Bf%7D%29%29%29%20%3D%20%5Cmathbb%7BE%7D_%7BS%7D%5Cmathbb%7BE%7D_%7Bf%28X%3B%5Ctheta_%7Bf%7D%29%7D%5B-log%28p_%7B%5Ctheta_%7Bd%7D%7D%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%29%5D)
+![minimax3](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BL%7D_%7Bd%7D%28f%28X%3B%5Ctheta_%7Bf%7D%29%29%20%3D%20%5Cmathbb%7BE%7D_%7BS%7D%5Cmathbb%7BE%7D_%7Bf%28X%3B%5Ctheta_%7Bf%7D%29%7D%5B-log%28p_%7B%5Ctheta_%7Bd%7D%7D%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%29%5D)
 
 # Theoretical
 In this section, author proof that the classifier and discriminator will finally converge to optimal given its structure has enough capacity and discriminator could reach optimal in each iteration.
 
 Assume a fixed classifier and discriminator reaches its optimal, then
 
-![](https://latex.codecogs.com/gif.latex?p_%7B%5Ctheta_%7Bd%7D%7D%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%20%3D%20f%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
+![proof1](https://latex.codecogs.com/gif.latex?p_%7B%5Ctheta_%7Bd%7D%7D%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%20%3D%20f%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
+
+![proof2](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BL%7D_%7Bd%7D%28f%28X%3B%5Ctheta_%7Bf%7D%29%29%20%3D%20-%5Cint_%7BS%7D%5Cint_%7Bf%28X%3B%5Ctheta_%7Bf%7D%29%7Df%28s%2C%20f%28X%3B%5Ctheta_%7Bf%7D%29%29%20%5Ctimes%20log%28f%28s%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29%29d_%7Bs%7Dd_%7Bf%28X%3B%5Ctheta_%7Bf%7D%29%7D)
+
+![proof3](https://latex.codecogs.com/gif.latex?%3D%20H%28S%7Cf%28X%3B%5Ctheta_%7Bf%7D%29%29)
+
+Here, the H is used to denote the conditional entropy.
